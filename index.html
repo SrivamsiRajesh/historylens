@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Lens</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media screen and (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <span></span>
+            <div class="logo">History Lens </div>
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pick-your-hero">Pick Your hero</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <audio src="media/music.mp3"></audio>
+        <section class="video-section" id="home">
+            <div class="video-container">
+                <video src="./media/bg2.mp4" autoplay loop muted></video>
+            </div>
+            <div class="img-container">
+                <img src="./media/window.png" alt="" class="img">
+            </div>
+
+            <div class="text-content">
+                <div class="img_txt">
+                    <div class="title sm left">
+                        <span>Listen</span>
+                    </div>
+                    <div class="title bg left">
+                        <span>To the</span>
+                    </div>
+                    <div class="title bg right n">
+                        <span>Unsung</span>
+                    </div>
+                    <div class="title bg right">
+                        <span>Tales</span>
+                    </div>
+                </div>
+                <p class="txt-bottom">
+                    shots that will change your mind
+                </p>
+            </div>
+
+            <div class="v_container" id="about">
+                <div class="left-side">
+                    <div class="tv">
+                        <div class="bg">About Us</div>
+                    </div>
+                    <div class="text-container">
+                        <p>
+                            At HistoryLens, we bring history's hidden stories and unsung heroes to life. Our mission is to make the past accessible and engaging through immersive tools like virtual AR experiences and curated book recommendations. We believe that history is more than dates—it's a collection of experiences that shape our world. Join us in exploring the rich narratives that connect our past to the present.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="features">
+            <div class="boxes-container">
+                <div class="columns box1">
+                    <div class="col-2">
+                        <h1>Features</h1>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="card">
+                        <img src="media/exp-history.jpg">
+                        <div class="content">
+                            <h2>Explory History</h2>
+                            <p>Dive into interactive timelines and immersive narratives that bring historical events to life.</p>
+                            <a href="history/history.html">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <img src="media/rec-reads.jpg">
+                        <div class="content">
+                            <h2>Recommended Reads</h2>
+                            <p>Discover curated book lists tailored to your interests, offering deep dives into fascinating historical topics</p>
+                            <a href="#">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <img src="media/AR.jpg">
+                        <div class="content">
+                            <h2>AR experience</h2>
+                            <p>Step into the past with our augmented reality feature, visualizing historical scenes in your environment. Interact with lifelike representations of significant events and figure</p>
+                            <a href="#">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <section class="pick-hero-section" id="pick-your-hero">
+        <h1>Pick Your Hero</h1>
+        <div class="hero-container">
+            <div class="hero-card">
+                <div class="hero-image">
+                    <img src="media/capt.png" alt="Velupillai Prabhakaran">
+                </div>
+                <div class="hero-content">
+                    <h2>Velupillai Prabhakaran</h2>
+                    <p>Founder and leader of the Liberation Tigers of Tamil Eelam (LTTE) in Sri Lanka.</p>
+                </div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-image">
+                    <img src="media/baldwin.jpg" alt="Baldwin IV of Jerusalem">
+                </div>
+                <div class="hero-content">
+                    <h2>Baldwin IV of Jerusalem</h2>
+                    <p>Known as the "Leper King," he ruled during a turbulent time and was a skilled military leader despite his illness.</p>
+                </div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-image">
+                    <img src="media/Genghis.jpg" alt="Genghis Khan">
+                </div>
+                <div class="hero-content">
+                    <h2>Genghis Khan</h2>
+                    <p>Founder and first Great Khan of the Mongol Empire, the largest contiguous land empire in history.</p>
+                </div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-image">
+                    <img src="media/che.jpg" alt="Che Guevara">
+                </div>
+                <div class="hero-content">
+                    <h2>Che Guevara</h2>
+                    <p>Marxist revolutionary, physician, author, guerrilla leader, and military theorist.</p>
+                </div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-image">
+                    <img src="media/gandhi.jpg" alt="Mahatma Gandhi">
+                </div>
+                <div class="hero-content">
+                    <h2>Mahatma Gandhi</h2>
+                    <p>Indian lawyer and anti-colonial nationalist who employed nonviolent resistance.</p>
+                </div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-image">
+                    <img src="media/martin.jpg" alt="Martin Luther King Jr.">
+                </div>
+                <div class="hero-content">
+                    <h2>Martin Luther King Jr.</h2>
+                    <p>American civil rights leader who advanced civil rights through nonviolence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <canvas class="experience"></canvas>
+<div class="scrollTarget"></div>
+<div class="vignette-radial"></div>
+
+    <footer>
+        <div class="logo"><a href="#">History Lens</a></div>
+    </footer>
+    <canvas class="experience"></canvas>
+    <div class="scrollTarget"></div>
+    <div class="vignette-radial"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script src="script/script.js"></script>
+</body>
+
+</html>
