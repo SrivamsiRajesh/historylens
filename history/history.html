@@ -1,11 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>History Search</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap">
+    <style>
+        @font-face {
+            font-family: 'WanoQuin';
+            src: url('./fonts/WanoQuin-ExtraBold.otf');
+        }
+
+        body {
+            background-color: #333333; /* Dark background */
+            color: #FAF3E0; /* Light beige text color */
+            font-family: 'Lato', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #141414; /* Fallback color */
+        }
+
+        .hero-section video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3; /* Adjust this for more or less visibility of the video */
+            z-index: -1;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(20, 20, 20, 0.7); /* Dark overlay for better readability */
+            z-index: 0;
+        }
+
+        .hero-content {
+            z-index: 1;
+            color: #FAF3E0; /* Light beige text for hero content */
+        }
+
+        .hero-content h1 {
+            font-family: 'WanoQuin', serif; /* Use WanoQuin for the title */
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .search-section {
+            background-color: #FAF3E0; /* Light beige background */
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .search-section input {
+            padding: 0.8rem 1rem;
+            border: none;
+            border-radius: 30px;
+            width: 60%;
+            max-width: 500px;
+            margin-bottom: 1rem;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .search-section button {
+            background-color: #800000; /* Deep Burgundy */
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-section button:hover {
+            background-color: #D4AF37; /* Gold */
+        }
+
+        #results {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        #results div {
+            background-color: #1E1E1E; /* Dark background for results */
+            border: 1px solid #D4AF37; /* Gold border */
+            padding: 1rem;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s ease;
+        }
+
+        #results div:hover {
+            transform: scale(1.05);
+        }
+
+        #results h3 {
+            font-family: 'WanoQuin', serif; /* Use WanoQuin for titles */
+            font-size: 1.25rem;
+            color: #FAF3E0; /* Light beige */
+            margin-bottom: 0.5rem;
+        }
+
+        #results p {
+            font-size: 0.9rem;
+            color: #ddd;
+            margin-bottom: 0.5rem;
+        }
+
+        #results a {
+            text-decoration: none;
+            color: #D4AF37; /* Gold */
+            font-weight: 600;
+        }
+
+        #loadingIndicator {
+            color: #D4AF37; /* Gold */
+            margin-top: 1rem;
+        }
+
+        footer {
+            background-color: #141414; /* Dark footer */
+            text-align: center;
+            padding: 1rem;
+            color: #ccc;
+            font-size: 0.8rem;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>hi</h1>
+    <section class="hero-section">
+        <video src="assets/bg.mp4" muted loop autoplay></video>
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Discover the Stories of the Past</h1>
+            <p>Uncover hidden tales from around the world.</p>
+        </div>
+    </section>
+
+    <section class="search-section">
+        <input type="text" id="searchInput" placeholder="Search for historical topics">
+        <button onclick="searchWikipedia()">Search</button>
+        <div id="loadingIndicator" style="display: none;">Searching...</div>
+        <div id="results"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 HistoryLens | Powered by Wikipedia</p>
+    </footer>
+
+    <script>
+        function searchWikipedia() {
+            const searchTerm = document.getElementById('searchInput').value;
+            const apiUrl = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(searchTerm)}&format=json&origin=*`;
+
+            document.getElementById('loadingIndicator').style.display = 'block';
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('loadingIndicator').style.display = 'none';
+                    const resultsDiv = document.getElementById('results');
+                    resultsDiv.innerHTML = '';
+
+                    if (data.query && data.query.search) {
+                        data.query.search.forEach(item => {
+                            const articleDiv = document.createElement('div');
+                            articleDiv.innerHTML = `
+                                <h3>${item.title}</h3>
+                                <p>${item.snippet}...</p>
+                                <a href="https://en.wikipedia.org/?curid=${item.pageid}" target="_blank">Read more</a>
+                            `;
+                            resultsDiv.appendChild(articleDiv);
+                        });
+                    } else {
+                        resultsDiv.innerHTML = 'No results found.';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    document.getElementById('loadingIndicator').style.display = 'none';
+                    document.getElementById('results').innerHTML = 'An error occurred while fetching data.';
+                });
+        }
+    </script>
 </body>
+
 </html>
