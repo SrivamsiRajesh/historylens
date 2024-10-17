@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Lens - 360 Video Experiences</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-color: #333333;
+            color: #fff;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 100vh; /* Full height for hero section */
+            overflow: hidden; /* Hide overflow for clean layout */
+        }
+
+        .hero-section video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Keep behind content */
+        }
+
+        .hero-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+            z-index: 1; /* Keep above video */
+        }
+
+        .hero-content h1 {
+            font-family: 'WanoQuin';
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .experience-section {
+            padding: 40px 0;
+            background-color: #333333;
+        }
+
+        .experience-section h1 {
+            text-align: center;
+            font-family: 'WanoQuin';
+            font-size: 4rem;
+            margin-bottom: 30px;
+        }
+
+        .experience-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+            padding: 0 50px;
+        }
+
+        .experience-card {
+            flex: 0 0 calc(50% - 20px);
+            max-width: calc(50% - 20px);
+            height: 400px; /* Adjusted height */
+            background: rgba(255, 255, 255, 0.1);
+            transform: skew(-10deg);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+            text-align: center; /* Center text in cards */
+        }
+
+        .experience-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .experience-content h2 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .experience-content p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .experience-content a {
+            color: #D4AF37; /* Gold color for links */
+            text-decoration: underline;
+        }
+
+        .experience-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image covers the entire card */
+            filter: brightness(1.5); /* Increase brightness */
+            opacity: 0.7; /* Adjust opacity as needed */
+            z-index: -1; /* Keep behind content */
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="hero-section" id="home">
+        <video src="./media/bg2.mp4" autoplay loop muted></video>
+        <div class="hero-content">
+            <h1>Discover the Stories of the Past</h1>
+            <p>Uncover hidden tales from around the world.</p>
+        </div>
+    </div>
+
+    <section class="experience-section">
+        <h1>360 Video Experiences</h1>
+        <div class="experience-container">
+            <div class="experience-card">
+                <img src="https://i.dailymail.co.uk/i/pix/2017/09/06/12/43F5F2A700000578-4857730-This_photo_taken_by_Robert_Szabos_shows_a_group_of_men_lying_in_-a-164_1504698584467.jpg" alt="Civil War Trenches">
+                <div class="experience-content">
+                    <h2>Civil War Trenches</h2>
+                    <p>Explore the remains of Civil War trenches and experience the history.</p>
+                    <a href="https://youtu.be/m7h4XuvLrmg" target="_blank">Watch Now</a>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <img src="https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-ux-1080-600,f_auto,q_auto:best/msnbc/components/video/201704/f_lon_egypttomb2_170418.jpg" alt="3,500-Year-Old Egyptian Tomb">
+                <div class="experience-content">
+                    <h2>3,500-Year-Old Egyptian Tomb</h2>
+                    <p>Step inside an ancient Egyptian tomb and witness its mysteries.</p>
+                    <a href="https://youtu.be/PfUhsW5jwYo" target="_blank">Watch Now</a>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <img src="https://cdn.britannica.com/49/135149-050-D6B8878A/troops-British-trench-Western-Front-World-War.jpg" alt="WW1 Trenches">
+                <div class="experience-content">
+                    <h2>WW1 Trenches</h2>
+                    <p>Walk through the trenches of World War I and feel the history.</p>
+                    <a href="https://youtu.be/92dNeGwf9Qs" target="_blank">Watch Now</a>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <img src="https://www.publicdomainpictures.net/pictures/60000/velka/the-great-kremlin-palace-moscow.jpg" alt="Grand Kremlin Palace">
+                <div class="experience-content">
+                    <h2>Grand Kremlin Palace</h2>
+                    <p>Take a virtual tour of the majestic Grand Kremlin Palace.</p>
+                    <a href="https://youtu.be/JZtJHYdBpGE" target="_blank">Watch Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
