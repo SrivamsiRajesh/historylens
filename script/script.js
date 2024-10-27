@@ -113,14 +113,14 @@ window.addEventListener('scroll', function() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     if (scrollTop > lastScrollTop && scrollTop > 100) {
-        // Scroll down
+        
         navbar.classList.add('hidden');
     } else {
-        // Scroll up
+ 
         navbar.classList.remove('hidden');
     }
 
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
 });
 
 VanillaTilt.init(document.querySelectorAll(".card"), {
